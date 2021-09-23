@@ -111,20 +111,26 @@ class MainScreen(Screen):
         self.s0.start_relative_move(-15)
         while self.s0.is_busy():
             sleep(.5)
+        self.ultra_label.text = str(self.s0.get_position_in_units())
 
         sleep(10)
         self.s0.start_relative_move(-10)
         while self.s0.is_busy():
             sleep(.5)
+        self.ultra_label.text = str(self.s0.get_position_in_units())
 
         sleep(8)
         self.s0.goHome()
         sleep(30)
+        self.ultra_label.text = str(self.s0.get_position_in_units())
 
         self.s0.start_relative_move(100)
+        self.ultra_label.text = str(self.s0.get_position_in_units())
+
         sleep(10)
         self.s0.set_MaxSpeed(200)
         self.s0.goHome()
+        self.ultra_label.text = str(self.s0.get_position_in_units())
 
     def ultra(self):
         Thread(target=self.update_label).start()
