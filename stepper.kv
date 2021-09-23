@@ -1,0 +1,101 @@
+<MainScreen>:
+
+    #: import time __main__.time
+    color: 1,1,1,1
+    name: 'main'
+    change_speed: change_speed
+    ultra_label: ultra_label
+
+    FloatLayout:
+        size_hint: None, None
+
+
+    DPEAButton:
+        id:start_move
+        text: 'On/Off'
+        font_size: 30
+        x: root.width * 0.5
+        y: root.height * 0.2
+        on_press: root.switch_On()
+
+
+    DPEAButton:
+        id: change_direction
+        text: 'Change Direction'
+        x: root.width * 0.8
+        y: root.height * 0.2
+        on_press: root.reverse()
+
+    DPEAButton:
+        id: the_super_ultra_master_button
+        text: 'Very Ultra'
+        x: root.width * 0.2
+        y: root.height * 0.2
+        on_press: root.ultra()
+
+    Label:
+        id: ultra_label
+        text: '0.0'
+        x: root.width * -0.35
+        y: root.height * 0.
+        color: 0, 1, 0, 1
+        font_size: 30
+
+    Slider:
+        id:change_speed
+        min: 10000
+        max: 100000
+        step: 2
+        value_track: True
+        y: root.height * 0.4
+        on_value: root.slider_speed()
+
+
+    Label:
+        id:slider_label
+        text: str(change_speed.value)
+        color: 0, 1, 0, 1
+        font_size: 30
+<Screen2>
+    FloatLayout:
+        name: 'second'
+        canvas.before:
+            Rectangle:
+                source:'big_brain.jpg'
+                size: root.width, root.height
+                pos: self.pos
+        DPEAButton:
+            id:background_switch
+            x: root.width * 0.1
+            y: root.height * 0.2
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
+            Image:
+                source:'think_about_it.jpg'
+                allow_stretch: True
+                keep_ratio: True
+                x: root.width * 0.1
+                y: root.height * 0.2
+
+<Screen3>
+    FloatLayout:
+        name:'third'
+        DPEAButton:
+            id:animated_switch
+            x: root.width * 0.1
+            y: root.height * 0.2
+            on_press:
+                root.movement(self)
+                app.root.current = "main"
+                root.manager.transition.direction = "down"
+            Image:
+                source:'brain_expand.jpg'
+                allow_stretch: True
+                keep_ratio: True
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="080e0fe4-1654-4d20-b2e5-cbfcdc15a82a" name="Wire Raspberry Pi">
+        <fileTransfer accessType="SFTP" host="172.17.21.2" port="22" sshConfigId="39816aad-a862-4388-adf6-77aad58e185b" sshConfig="Wired Raspberry Pi" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
